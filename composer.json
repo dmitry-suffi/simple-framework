@@ -1,0 +1,26 @@
+{
+    "name": "dmitry-suffi/simple-core",
+    "description": "Ядро простого микрофреймворка simple",
+    "keywords": ["framework", "simple"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Suffi",
+            "email": "dmitry.suffering@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "suffi\\Simple\\": "src\\"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "psr/container": "*",
+        "psr/cache": "*",
+        "psr/log": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.4.*"
+    }
+}
