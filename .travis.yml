@@ -12,7 +12,7 @@ install:
 
 script:
   - mkdir -p build/logs
-  - php vendor/bin/phpunit -c tests/phpunit_cov.xml tests/
+  - php vendor/bin/phpunit -c tests/phpunit_clover.xml tests/
 
 after_success:
   - travis_retry php vendor/bin/coveralls
