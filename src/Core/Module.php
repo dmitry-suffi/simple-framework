@@ -2,7 +2,7 @@
 
 namespace suffi\Simple\Core;
 
-use suffi\Simple\Core\di\ContainerTrait;
+use suffi\di\ContainerTrait;
 use suffi\Simple\Core\Exceptions\ConfigException;
 use suffi\Simple\Helpers\ArrayHelper;
 

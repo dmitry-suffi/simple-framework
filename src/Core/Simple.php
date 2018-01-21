@@ -3,7 +3,6 @@
 namespace suffi\Simple\Core;
 
 use suffi\Simple\Core\Http\Session\Session;
-use suffi\Simple\Ext\DB\DB;
 
 /**
  * Класс-хелпер для быстрого доступа к компонентам
@@ -86,14 +85,14 @@ class Simple
         return self::getApp()->getParam($name, $default);
     }
 
-    /**
-     * Компонент для работы с бд
-     * @return DB
-     */
-    public static function getDb()
-    {
-        return self::$app->getContainer()->get('DB');
-    }
+//    /**
+//     * Компонент для работы с бд
+//     * @return DB
+//     */
+//    public static function getDb()
+//    {
+//        return self::$app->getContainer()->get('DB');
+//    }
 
     /**
      * Компонент для работы с сессиями

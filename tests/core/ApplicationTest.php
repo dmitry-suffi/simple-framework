@@ -3,6 +3,7 @@
 namespace suffi\Simple\tests\core;
 
 use PHPUnit\Framework\TestCase;
+use suffi\di\NotFoundException;
 use suffi\Simple\Core\Exceptions\ConfigException;
 
 /**
@@ -71,7 +72,7 @@ class ApplicationTest extends TestCase
 
     public function testBadRun()
     {
-        $this->expectException(ConfigException::class);
+        $this->expectException(NotFoundException::class);
 
         $app = $this->getApp();
 
