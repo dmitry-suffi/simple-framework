@@ -35,9 +35,6 @@
             <directory suffix=".php">../src</directory>
             <exclude>
                 <directory suffix=".php">../vendor</directory>
-                <directory>../src/config</directory>
-                <directory>../src/Ext/Smarty/smarty</directory>
-                <file>../src/Core/Exceptions/ErrorHandler/errorTemplate.php</file>
             </exclude>
         </whitelist>
     </filter>
