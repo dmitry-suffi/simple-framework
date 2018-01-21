@@ -168,7 +168,7 @@ class Module
             foreach ($this->config['css'] as $group => $items) {
                 foreach ($items as $item) {
                     $item = trim($item, '/');
-                    $data[View::CSS][] = $this->getPath($group) . $item . '?v=' . nc::$app->getBuildVersion();
+                    $data[View::CSS][] = $this->getPath($group) . $item . '?v=' . Simple::$app->getBuildVersion();
                 }
             }
         }
@@ -177,7 +177,7 @@ class Module
             foreach ($this->config['js'] as $group => $items) {
                 foreach ($items as $item) {
                     $item = trim($item, '/');
-                    $data[View::JS][] = $this->getPath($group) . $item . '?v=' . nc::$app->getBuildVersion();
+                    $data[View::JS][] = $this->getPath($group) . $item . '?v=' . Simple::$app->getBuildVersion();
                 }
             }
         }
@@ -219,7 +219,7 @@ class Module
      */
     private function getPath($group)
     {
-        $staticPath = nc::$app->scriptUrl . '/Common/static/';
+        $staticPath = Simple::$app->scriptUrl . '/Common/static/';
 
         if ($group == 'app') {
             $path = $staticPath;

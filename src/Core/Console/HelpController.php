@@ -5,7 +5,7 @@ namespace suffi\Simple\Core\Console;
 
 use suffi\Simple\Core\Controller;
 use suffi\Simple\Core\Module;
-use suffi\Simple\Core\nc;
+use suffi\Simple\Core\Simple;
 use suffi\Simple\Helpers\ConsoleHelper;
 
 /**
@@ -26,7 +26,7 @@ class HelpController extends Controller
         echo PHP_EOL;
         echo "Список консольных команд:" . PHP_EOL;
 
-        $modules = nc::$app->getParam('modules');
+        $modules = Simple::$app->getParam('modules');
 
         foreach ($modules as $module) {
             if (!isset($module['class'])) {

@@ -2,12 +2,9 @@
 
 namespace suffi\Simple\Core;
 
+use suffi\ErrorHandler\ErrorHandler;
 use suffi\Simple\Core\di\ContainerTrait;
 use suffi\Simple\Core\Exceptions\ConfigException;
-use suffi\Simple\Core\Exceptions\ErrorHandler\ErrorHandler;
-use suffi\Simple\Ext\Cache\ArrayCache;
-use suffi\Simple\Ext\Logger\FakeLogger;
-use suffi\Simple\Core\Http\Session\Session;
 use suffi\Simple\Helpers\ArrayHelper;
 
 /**
@@ -80,7 +77,7 @@ class Application
      */
     public function __construct()
     {
-        nc::$app = $this;
+        Simple::$app = $this;
 
         $this->ncDir = dirname(__DIR__);
     }
@@ -205,7 +202,7 @@ class Application
     {
         $controller = $this->router->getController();
 
-        echo $controller->run(nc::getRequest()->get('action', $this->router->getAction()));
+        echo $controller->run(Simple::getRequest()->get('action', $this->router->getAction()));
     }
 
     /**
@@ -213,7 +210,7 @@ class Application
      */
     protected function beforeHandle()
     {
-        $scriptUrl = str_replace(nc::$app->getAppDir(), '', nc::$app->getNcDir());
+        $scriptUrl = str_replace(Simple::$app->getAppDir(), '', Simple::$app->getNcDir());
         $scriptUrl = trim($scriptUrl, DIRECTORY_SEPARATOR);
         $this->scriptUrl = $scriptUrl;
     }
@@ -231,9 +228,9 @@ class Application
     protected function initErrorHandler()
     {
         $handler = new ErrorHandler();
-        $handler->logger = nc::getLogger();
+        $handler->logger = Simple::getLogger();
         $handler->debug = $this->getParam('debug', false);
-        $handler->detailLog = $this->getParam('detailLog', false);
+        $handler->debugLog = $this->getParam('debugLog', false);
         set_error_handler([$handler, 'errorHandler']);
         set_exception_handler([$handler, 'exceptionHandler']);
     }

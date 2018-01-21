@@ -4,7 +4,7 @@ namespace suffi\Simple\Core\Web;
 
 use suffi\Simple\Core\Exceptions\ConfigException;
 use suffi\Simple\Core\Exceptions\NotFoundException;
-use suffi\Simple\Core\nc;
+use suffi\Simple\Core\Simple;
 
 /**
  * Class Router
@@ -33,7 +33,7 @@ class Router extends \suffi\Simple\Core\Router
     public function route():array
     {
         /** @var $request */
-        $request = nc::getRequest();
+        $request = Simple::getRequest();
 
         $route = $request->get(self::routeParams, $request->post(self::routeParams));
         if ($route && preg_match('/(.+?)\/(.+?)\/(.+?)/', $route)) {

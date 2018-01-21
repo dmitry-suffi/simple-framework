@@ -169,7 +169,7 @@ class Controller
 
         $data['static'] = $this->getModule()->getStatic();
 
-        $data['project'] = nc::$app->getParam('project');
+        $data['project'] = Simple::$app->getParam('project');
 
         $data['module_params'] = json_encode($this->module->params);
 

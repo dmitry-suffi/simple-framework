@@ -7,10 +7,10 @@ use suffi\Simple\Ext\DB\DB;
 
 /**
  * Класс-хелпер для быстрого доступа к компонентам
- * Class nc
+ * Class Simple
  * @package suffi\Simple\Core
  */
-class nc
+class Simple
 {
     /**
      * Приложение
@@ -32,9 +32,9 @@ class nc
      * @param string $message
      * @return void
      */
-    public static function logError(string $message)
+    public static function logError(string $message, array $context = array())
     {
-        self::getLogger()->error($message);
+        self::getLogger()->error($message, $context);
     }
 
     /**
@@ -42,9 +42,9 @@ class nc
      * @param string $message
      * @return void
      */
-    public static function debug(string $message)
+    public static function debug(string $message, array $context = array())
     {
-        self::getLogger()->debug($message);
+        self::getLogger()->debug($message, $context);
     }
 
     /**

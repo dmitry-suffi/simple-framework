@@ -48,7 +48,7 @@ abstract class Router
      */
     public function getAction() {
         if (!$this->action){
-            return nc::getRequest()->post('action', '');
+            return Simple::getRequest()->post('action', '');
         }
         return $this->action;
     }
@@ -82,18 +82,18 @@ abstract class Router
      */
     protected function createController($moduleName, $controllerName): Controller
     {
-        $moduleConfig = nc::getParam('modules.' . $moduleName);
+        $moduleConfig = Simple::getParam('modules.' . $moduleName);
         if (!isset($moduleConfig['class']) || !$moduleConfig['class']) {
             throw new ConfigException("Не задана конфигурация для модуля " . $moduleName);
         }
         $moduleName = $moduleConfig['class'];
 
-        $module = nc::$app->getContainer()->has($moduleName) ? nc::$app->getContainer()->get($moduleName) : new $moduleName();
+        $module = Simple::$app->getContainer()->has($moduleName) ? Simple::$app->getContainer()->get($moduleName) : new $moduleName();
         if (!$module instanceof Module || !$module) {
             throw new ConfigException("Не верно задана конфигурация для модуля " . $moduleName);
         }
 
-        $module->getContainer()->setParentsContainer(nc::$app->getContainer());
+        $module->getContainer()->setParentsContainer(Simple::$app->getContainer());
         $module->configure($moduleConfig['components'] ?? []);
 
         $module->params = $moduleConfig['params'] ?? [];

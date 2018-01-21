@@ -22,7 +22,7 @@ class RedisSession extends Session
 {
     public function __construct($name = 'PHPSESSID')
     {
-        $redis = \suffi\Simple\Core\nc::get('Redis');
+        $redis = \suffi\Simple\Core\Simple::get('Redis');
         $sessionHandler = ($redis instanceof \Redis && $redis->isConnect()) ? new \suffi\RedisSessionHandler\RedisSessionHandler($redis) : new \SessionHandler();
 
         session_set_save_handler($sessionHandler);
