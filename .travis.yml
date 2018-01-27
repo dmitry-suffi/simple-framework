@@ -17,3 +17,4 @@ script:
 after_success:
   - travis_retry php vendor/bin/coveralls
   - travis_retry php vendor/bin/coveralls -v
+  - cat build/logs/clover.xml
