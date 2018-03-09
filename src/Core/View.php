@@ -3,6 +3,7 @@
 namespace suffi\Simple\Core;
 
 /**
+ * todo
  * Class View
  *
  * Класс для реализации уровня представления
@@ -13,6 +14,12 @@ abstract class View
 {
     const CSS = 'CSS';
     const JS = 'JS';
+
+    /**
+     * Папка с шаблонами
+     * @var string
+     */
+    public $templateDir = 'View';
 
     /**
      * Отображение шаблона
@@ -27,14 +34,14 @@ abstract class View
      * @param $addTemplateDir
      * @return mixed
      */
-    abstract public function addTemplateDir($addTemplateDir);
+    //abstract public function addTemplateDir($addTemplateDir);
 
     /**
      * Получение директории с шаблоном
      * @param $index
      * @return mixed
      */
-    abstract public function getTemplateDir($index);
+    //abstract public function getTemplateDir($index);
 
     /**
      * Очистка временных данных
