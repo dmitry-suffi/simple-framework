@@ -1,6 +1,6 @@
 {
-    "name": "dmitry-suffi/simple-core",
-    "description": "Ядро простого микрофреймворка simple",
+    "name": "dmitry-suffi/simple-script",
+    "description": "Ядро простого скрипта simple",
     "keywords": ["framework", "simple"],
     "license": "MIT",
     "authors": [
@@ -14,12 +14,20 @@
             "suffi\\Simple\\": "src\\"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "suffi\\Simple\\Tests\\": "tests\\"
+        }
+    },
     "require": {
         "php": ">=7.0.0",
         "psr/cache": "*",
         "psr/log": "*",
         "dmitry-suffi/di": "1.2.*",
-        "dmitry-suffi/error-handler": "1.0.*"
+        "dmitry-suffi/error-handler": "1.0.*",
+        "dmitry-suffi/redis-session-handler": "1.0.4",
+        "graylog2/gelf-php": "~1.2",
+        "smarty/smarty": "~3.1"
     },
     "require-dev": {
         "phpunit/phpunit": "6.4.*",

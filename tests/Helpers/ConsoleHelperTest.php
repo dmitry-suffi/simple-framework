@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\tests\Helpers;
+namespace suffi\Simple\Tests\Helpers;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Helpers\ConsoleHelper;

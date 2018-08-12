@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\tests\core;
+namespace suffi\Simple\Tests\core;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Core\Exceptions\ConfigException;
@@ -37,7 +37,7 @@ class ModuleTest extends TestCase
             protected $name = 'Foo';
 
             protected $controllerMap = [
-                'Foo' => 'suffi\Simple\tests\Fixtures\core\FooController',
+                'Foo' => 'suffi\Simple\Tests\Fixtures\core\FooController',
                 'Bad' => '\StdClass',
             ];
         };
@@ -54,7 +54,7 @@ class ModuleTest extends TestCase
 
         $controller = $module->getController('Foo');
 
-        $this->assertInstanceOf('suffi\Simple\tests\Fixtures\core\FooController', $controller);
+        $this->assertInstanceOf('suffi\Simple\Tests\Fixtures\core\FooController', $controller);
         $this->assertEquals($controller->getModule(), $module);
 
         $this->assertEquals($module->getName(), 'Foo');

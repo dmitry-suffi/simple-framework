@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\tests\core;
+namespace suffi\Simple\Tests\core;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Core\Request;

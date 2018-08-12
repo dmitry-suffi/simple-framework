@@ -34,5 +34,4 @@ class PhpView extends View
             throw $e;
         }
     }
-
 }

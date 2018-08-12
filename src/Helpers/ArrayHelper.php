@@ -132,10 +132,6 @@ class ArrayHelper
      */
     public static function remove(array &$source = [], $key)
     {
-        if (!is_array($source)) {
-            return;
-        }
-
         if (!is_string($key) && !is_int($key)) {
             return;
         }
@@ -145,19 +141,16 @@ class ArrayHelper
             return;
         }
 
-        if (($pos = strrpos($key, '.')) !== false) {
+        if (($pos = strpos($key, '.')) !== false) {
             $childKey = substr($key, 0, $pos);
             $childSource = static::get($source, $childKey, []);
             if (!is_array($childSource)) {
                 return;
             }
             self::remove($childSource, substr($key, $pos + 1));
-            $source[$childKey] = $childSource;
-            return;
-        }
-
-        if (array_key_exists($key, $source)) {
-            unset($source[$key]);
+            if (static::has($source, $childKey)) {
+                $source[$childKey] = $childSource;
+            }
             return;
         }
     }

@@ -1,7 +1,6 @@
 <?php
 
-namespace suffi\Simple\tests\Components\View;
-
+namespace suffi\Simple\Tests\Components\View;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Components\View\PhpView;
@@ -23,7 +22,5 @@ class PhpViewTest extends TestCase
         $r = ob_get_clean();
 
         $this->assertEquals($r, "Привет, я Kristian, мне 30 лет.");
-
     }
-
 }

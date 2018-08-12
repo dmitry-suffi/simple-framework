@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\tests\Fixtures\core;
+namespace suffi\Simple\Tests\Fixtures\core;
 
 
 use suffi\Simple\Core\Controller;

@@ -2,7 +2,7 @@
 ```sh
 clear && php70 phpunit.phar --colors=always --bootstrap=tests/autoload.php tests/
 
-clear && php70 vendor/bin/phpunit --colors=always --bootstrap=../tests/autoload.php  ../tests/
+clear && php vendor/bin/phpunit --colors=always --bootstrap=../tests/autoload.php  ../tests/
 ```
 
 2 вариант (для windows с покрытием кода)

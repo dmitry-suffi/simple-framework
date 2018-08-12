@@ -54,5 +54,4 @@ abstract class Logger implements LoggerInterface
     }
 
     abstract public function log($level, $message, array $context = array());
-
 }

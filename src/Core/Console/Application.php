@@ -39,8 +39,5 @@ class Application extends \suffi\Simple\Core\Application
         if (!$this->getContainer()->hasDefinition('Session')) {
             $this->getContainer()->setDefinition('Session', ArraySession::class);
         }
-
     }
-
-
 }
