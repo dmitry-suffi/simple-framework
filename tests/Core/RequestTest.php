@@ -5,13 +5,11 @@ namespace suffi\Simple\Tests\Core;
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Core\Request;
 
-
 /**
  * Class RequestTest
  */
 class RequestTest extends TestCase
 {
-
     protected function getRequest(array $get = [], array $post = [])
     {
         $request =  new class extends Request

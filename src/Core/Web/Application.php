@@ -2,11 +2,9 @@
 
 namespace suffi\Simple\Core\Web;
 
-
 use suffi\Simple\Components\Cache\ArrayCache;
 use suffi\Simple\Components\Logger\FakeLogger;
 use suffi\Simple\Core\Http\Session\Session;
-
 
 /**
  * Класс-приложение для web
@@ -15,7 +13,6 @@ use suffi\Simple\Core\Http\Session\Session;
  */
 class Application extends \suffi\Simple\Core\Application
 {
-
     /**
      * Конфигурация контейнера поумолчанию
      */
