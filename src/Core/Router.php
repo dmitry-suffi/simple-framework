@@ -46,8 +46,9 @@ abstract class Router
      * Действие
      * @return string
      */
-    public function getAction() {
-        if (!$this->action){
+    public function getAction()
+    {
+        if (!$this->action) {
             return Simple::getRequest()->post('action', '');
         }
         return $this->action;
@@ -70,7 +71,7 @@ abstract class Router
      * Получение названия модуля и контроллера
      * @return array[$moduleName, $controllerName]
      */
-    abstract function route():array;
+    abstract protected function route(): array;
 
     /**
      * Создание контроллера
@@ -88,7 +89,9 @@ abstract class Router
         }
         $moduleName = $moduleConfig['class'];
 
-        $module = Simple::$app->getContainer()->has($moduleName) ? Simple::$app->getContainer()->get($moduleName) : new $moduleName();
+        $module = Simple::$app->getContainer()->has($moduleName)
+            ? Simple::$app->getContainer()->get($moduleName)
+            : new $moduleName();
         if (!$module instanceof Module || !$module) {
             throw new ConfigException("Не верно задана конфигурация для модуля " . $moduleName);
         }

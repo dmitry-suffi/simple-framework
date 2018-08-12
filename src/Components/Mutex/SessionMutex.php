@@ -1,12 +1,12 @@
 <?php
 
-namespace suffi\Simple\Ext\Mutex;
+namespace suffi\Simple\Components\Mutex;
 
 use suffi\Simple\Core\Simple;
 
 class SessionMutex extends Mutex
 {
-    static $sessionKey = 'Mutex';
+    public static $sessionKey = 'Mutex';
 
     protected function acquireLock($name, $timeout = 0)
     {

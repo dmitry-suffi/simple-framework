@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Ext\Mutex;
+namespace suffi\Simple\Components\Mutex;
 
 /**
  * Класс для механизма блокировок
@@ -14,7 +14,7 @@ namespace suffi\Simple\Ext\Mutex;
  * </pre>
  *
  * Class Mutex
- * @package suffi\Simple\Ext\Mutex
+ * @package suffi\Simple\Components\Mutex
  *
  * @see http://www.yiiframework.com/doc-2.0/yii-mutex-mutex.html
  */
@@ -24,14 +24,14 @@ abstract class Mutex
      * Имена ключей блокировок1
      * @var string[]
      */
-    private $_locks = [];
+    private $locks = [];
 
     /**
      * Конструктор
      */
     final public function __construct()
     {
-        $locks = &$this->_locks;
+        $locks = &$this->locks;
         register_shutdown_function(function () use (&$locks) {
             foreach ($locks as $lock) {
                 $this->release($lock);
@@ -55,7 +55,7 @@ abstract class Mutex
     public function acquire($name, $timeout = 0)
     {
         if ($this->acquireLock($name, $timeout)) {
-            $this->_locks[] = $name;
+            $this->locks[] = $name;
 
             return true;
         } else {
@@ -71,9 +71,9 @@ abstract class Mutex
     public function release($name)
     {
         if ($this->releaseLock($name)) {
-            $index = array_search($name, $this->_locks);
+            $index = array_search($name, $this->locks);
             if ($index !== false) {
-                unset($this->_locks[$index]);
+                unset($this->locks[$index]);
             }
 
             return true;

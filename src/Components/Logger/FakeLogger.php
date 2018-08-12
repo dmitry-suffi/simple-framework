@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Ext\Logger;
+namespace suffi\Simple\Components\Logger;
 
 use suffi\Simple\Core\Logger;
 

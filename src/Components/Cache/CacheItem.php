@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Ext\Cache;
+namespace suffi\Simple\Components\Cache;
 
 use Psr\Cache\CacheItemInterface;
 use Psr\Log\InvalidArgumentException;
@@ -10,7 +10,7 @@ use Psr\Log\InvalidArgumentException;
  *
  * Элемент кэша по psr-7
  *
- * @package suffi\Simple\Ext\Cache
+ * @package suffi\Simple\Components\Cache
  */
 final class CacheItem implements CacheItemInterface
 {

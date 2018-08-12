@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Ext\Logger;
+namespace suffi\Simple\Components\Logger;
 
 use Gelf\Message;
 use Gelf\Publisher;
@@ -16,7 +16,7 @@ use suffi\Simple\Core\Simple;
  *
  * <pre>
  * 'Logger' => [
- *     'class' => 'suffi\Simple\Ext\Logger\GraylogLogger',
+ *     'class' => 'suffi\Simple\Components\Logger\GraylogLogger',
  *     'setters' => [
  *         'host' => '11.111.111.111',
  *         'port' => '12201',

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace suffi\Simple\Ext\Cache;
+namespace suffi\Simple\Components\Cache;
 
 use suffi\Simple\Core\Simple;
 use Psr\Cache\CacheItemInterface;

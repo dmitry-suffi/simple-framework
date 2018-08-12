@@ -2,7 +2,6 @@
 
 namespace suffi\Simple\Core\Console;
 
-
 use suffi\Simple\Core\Controller;
 use suffi\Simple\Core\Module;
 use suffi\Simple\Core\Simple;
@@ -20,7 +19,6 @@ class HelpController extends Controller
      */
     protected $defaultAction = 'help';
 
-
     public function actionHelp()
     {
         echo PHP_EOL;
@@ -32,7 +30,7 @@ class HelpController extends Controller
             if (!isset($module['class'])) {
                 continue;
             }
-            $instance = new $module['class'];
+            $instance = new $module['class']();
             if (!($instance instanceof Module)) {
                 continue;
             }
@@ -46,7 +44,5 @@ class HelpController extends Controller
                 }
             }
         }
-
     }
-
 }

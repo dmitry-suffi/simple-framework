@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Ext\Cache;
+namespace suffi\Simple\Components\Cache;
 
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
@@ -10,7 +10,7 @@ use Psr\Cache\CacheItemPoolInterface;
  *
  * Абстрактный класс для кэша по psr-7
  *
- * @package suffi\Simple\Ext\Cache
+ * @package suffi\Simple\Components\Cache
  */
 abstract class Cache implements CacheItemPoolInterface
 {

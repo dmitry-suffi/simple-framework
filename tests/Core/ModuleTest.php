@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Tests\core;
+namespace suffi\Simple\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Core\Exceptions\ConfigException;
@@ -64,12 +64,10 @@ class ModuleTest extends TestCase
 
         $this->assertEquals($module->config['js'], ['app' => ['test']]);
         $this->assertEquals($module->config['css'], ['app' => ['testcss']]);
-
     }
 
     public function testNotExistController()
     {
-
         $this->expectException(ConfigException::class);
 
         $module = $this->getModule();
@@ -78,5 +76,4 @@ class ModuleTest extends TestCase
 
         $module->getController('Bad');
     }
-
 }

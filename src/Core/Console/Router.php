@@ -54,6 +54,5 @@ class Router extends \suffi\Simple\Core\Router
         }
 
         return array('', '');
-
     }
 }

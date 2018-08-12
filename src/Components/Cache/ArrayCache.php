@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Ext\Cache;
+namespace suffi\Simple\Components\Cache;
 
 use Psr\Cache\CacheItemInterface;
 
@@ -9,7 +9,7 @@ use Psr\Cache\CacheItemInterface;
  *
  * Релизация кэша через массив
  *
- * @package suffi\Simple\Ext\Cache
+ * @package suffi\Simple\Components\Cache
  */
 class ArrayCache extends Cache
 {

@@ -3,8 +3,8 @@
 namespace suffi\Simple\Core\Console;
 
 use suffi\Simple\Core\Http\Session\ArraySession;
-use suffi\Simple\Ext\Cache\ArrayCache;
-use suffi\Simple\Ext\Logger\FakeLogger;
+use suffi\Simple\Components\Cache\ArrayCache;
+use suffi\Simple\Components\Logger\FakeLogger;
 
 /**
  * Класс-приложение для консоли

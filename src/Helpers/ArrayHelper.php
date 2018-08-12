@@ -21,7 +21,7 @@ class ArrayHelper
      * @param null $default
      * @return mixed
      */
-    public static function get(array $source = [], $key, $default = null)
+    public static function get(array $source, $key, $default = null)
     {
         if (!is_array($source)) {
             return $default;
@@ -55,7 +55,7 @@ class ArrayHelper
      * @param $key
      * @return bool
      */
-    public static function has(array $source = [], $key):bool
+    public static function has(array $source, $key): bool
     {
         if (!is_array($source)) {
             return false;
@@ -94,7 +94,7 @@ class ArrayHelper
      * @param $value
      * @return void
      */
-    public static function set(array &$source = [], $key, $value)
+    public static function set(array &$source, $key, $value)
     {
         if (!is_array($source)) {
             return;
@@ -130,7 +130,7 @@ class ArrayHelper
      * @param array $source
      * @param $key
      */
-    public static function remove(array &$source = [], $key)
+    public static function remove(array &$source, $key)
     {
         if (!is_string($key) && !is_int($key)) {
             return;
@@ -162,7 +162,7 @@ class ArrayHelper
      * @param $key
      * @return array
      */
-    public static function index(array $source = [], $key):array
+    public static function index(array $source, $key): array
     {
         if (!is_string($key) && !is_int($key)) {
             return $source;
@@ -184,7 +184,7 @@ class ArrayHelper
      * @param $key
      * @return array
      */
-    public static function groups(array $source = [], $key):array
+    public static function groups(array $source, $key): array
     {
         if (!is_string($key) && !is_int($key)) {
             return $source;
@@ -205,7 +205,7 @@ class ArrayHelper
      * @param array $dist
      * @return array
      */
-    public static function merge(array $source = [], array $dist = []):array
+    public static function merge(array $source = [], array $dist = []): array
     {
         foreach ($dist as $k => $v) {
             if (is_int($k)) {

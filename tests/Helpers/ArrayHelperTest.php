@@ -105,7 +105,6 @@ class ArrayHelperTest extends TestCase
         $this->assertFalse(ArrayHelper::has($array, 'bar.barfoofoo'));
         $this->assertTrue(ArrayHelper::has($array, 'bar.barfoo.bar'));
         $this->assertFalse(ArrayHelper::has($array, 'bar.barfoo.foo'));
-
     }
 
     public function testRemove()
@@ -139,7 +138,6 @@ class ArrayHelperTest extends TestCase
         $this->assertEquals(ArrayHelper::get($array, 'bar.foo'), null);
         $this->assertEquals(ArrayHelper::get($array, 'bar.bar'), 'bar');
         $this->assertEquals(ArrayHelper::get($array, 'foo'), null);
-
     }
 
     public function testIndex()
@@ -155,14 +153,13 @@ class ArrayHelperTest extends TestCase
 
         $this->assertEquals(count($idArray), 3);
         $this->assertEquals($idArray['4'], ['id' => '4', 'name' => 'olya']);
-        $this->assertEquals(array_diff_key(array_keys($idArray), ['1' ,'4', '7']), []);
+        $this->assertEquals(array_diff_key(array_keys($idArray), ['1', '4', '7']), []);
 
         $idArray = ArrayHelper::index($array, 'name');
 
         $this->assertEquals(count($idArray), 3);
         $this->assertEquals($idArray['olya'], ['id' => '4', 'name' => 'olya']);
-        $this->assertEquals(array_diff_key(array_keys($idArray), ['olya' ,'vasya', 'sasha']), []);
-
+        $this->assertEquals(array_diff_key(array_keys($idArray), ['olya', 'vasya', 'sasha']), []);
     }
 
     public function testGroups()
@@ -179,8 +176,7 @@ class ArrayHelperTest extends TestCase
         $this->assertEquals(count($grArray['smolensk']), 2);
         $this->assertEquals(count($grArray['astana']), 1);
         $this->assertEquals($grArray['astana'], [['id' => '1', 'name' => 'vasya', 'city' => 'astana']]);
-        $this->assertEquals(array_diff_key(array_keys($grArray), ['astana' ,'smolensk', '7']), []);
-
+        $this->assertEquals(array_diff_key(array_keys($grArray), ['astana', 'smolensk', '7']), []);
     }
 
     public function testMerge()
@@ -222,5 +218,4 @@ class ArrayHelperTest extends TestCase
         $this->assertEquals($mergeArray['bar']['barfoo']['bar'], ['foo' => 'foo']);
         $this->assertEquals($mergeArray['bar']['barfoo']['foo'], 'foo');
     }
-
 }

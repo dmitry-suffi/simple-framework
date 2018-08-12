@@ -14,5 +14,4 @@ class Request extends \suffi\Simple\Core\Request
         $this->queryParams = array_slice($_SERVER['argv'], 1);
         $this->bodyParams = [];
     }
-
 }

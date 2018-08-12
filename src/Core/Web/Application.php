@@ -3,8 +3,8 @@
 namespace suffi\Simple\Core\Web;
 
 
-use suffi\Simple\Ext\Cache\ArrayCache;
-use suffi\Simple\Ext\Logger\FakeLogger;
+use suffi\Simple\Components\Cache\ArrayCache;
+use suffi\Simple\Components\Logger\FakeLogger;
 use suffi\Simple\Core\Http\Session\Session;
 
 

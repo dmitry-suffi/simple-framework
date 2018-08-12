@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Tests\core;
+namespace suffi\Simple\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Core\Request;
@@ -35,7 +35,6 @@ class RequestTest extends TestCase
 
     public function testRequest()
     {
-
         $get = [
             'a' => 'ga' . rand(0, 10),
             'b' => 'gb' . rand(0, 10),
@@ -74,7 +73,5 @@ class RequestTest extends TestCase
 
         $this->assertArraySubset($query, $post);
         $this->assertArraySubset($post, $query);
-
     }
-
 }

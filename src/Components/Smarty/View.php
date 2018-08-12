@@ -1,18 +1,18 @@
 <?php
 
-namespace suffi\Simple\Ext\Smarty;
+namespace suffi\Simple\Components\Smarty;
 
 use suffi\Simple\Core\Simple;
 
 /**
- * Class View
- * 
  * Представление через шаблонизатор Smarty
+ * Class View
+ * @package suffi\Simple\Components\Smarty
  */
 class View extends \suffi\Simple\Core\View
 {
     /**
-     * Объект Smatry 
+     * Объект Smarty
      * @var \Smarty
      */
     private $smarty = null;
@@ -46,10 +46,12 @@ class View extends \suffi\Simple\Core\View
         if (is_null($this->smarty)) {
             $this->smarty = new \Smarty();
 
-            $this->smarty->setTemplateDir(Simple::$app->getNcDir() . DIRECTORY_SEPARATOR . 'Common' . DIRECTORY_SEPARATOR . $this->templateDir);
             $this->smarty->setCompileDir(Simple::$app->getAppDir() . DIRECTORY_SEPARATOR . $this->compileDir);
 
-            $this->smarty->assign('staticPath', Simple::$app->scriptUrl . DIRECTORY_SEPARATOR . 'Common' . DIRECTORY_SEPARATOR . 'static');
+            $this->smarty->assign(
+                'staticPath',
+                Simple::$app->scriptUrl . DIRECTORY_SEPARATOR . 'Common' . DIRECTORY_SEPARATOR . 'static'
+            );
 
             /** Вырубаем непреднамеренные ошибки */
             \Smarty::muteExpectedErrors();
@@ -74,7 +76,7 @@ class View extends \suffi\Simple\Core\View
 
         $smarty = $this->getSmarty();
 
-        foreach ($data as $name=>$value) {
+        foreach ($data as $name => $value) {
             $smarty->assign($name, $value);
         }
 

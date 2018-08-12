@@ -50,14 +50,14 @@ class Application
      * Псевдонимы для di-контейнера
      * @var array
      */
-    protected $_aliases = [
-        'suffi\Simple\Ext\DB\DB' => 'DB',
-        'suffi\Simple\Ext\Cache\Cache' => 'Cache',
+    protected $containerAliases = [
+        'suffi\Simple\Components\DB\DB' => 'DB',
+        'suffi\Simple\Components\Cache\Cache' => 'Cache',
         'suffi\Simple\Core\Router' => 'Router',
         'suffi\Simple\Core\View' => 'View',
         'suffi\Simple\Core\Request' => 'Request',
         'suffi\Simple\Core\Logger' => 'Logger',
-        'suffi\Simple\Ext\Session' => 'Session',
+        'suffi\Simple\Components\Session' => 'Session',
     ];
 
     /**
@@ -119,6 +119,14 @@ class Application
     }
 
     /**
+     * @return array
+     */
+    protected function getAliases()
+    {
+        return $this->containerAliases ?? [];
+    }
+
+    /**
      *  Инициализация
      * @param array $config Массив конфигурации
      */
@@ -162,14 +170,14 @@ class Application
         $debug = $this->getParam('debug', 0);
 
         if ($debug) {
-            $this->buildVersion =  round(microtime(1));
+            $this->buildVersion = round(microtime(1));
         } else {
             $buildVersion = $this->getParam('build_version');
             if (!$buildVersion && defined('BUILD_VERSION')) {
                 $buildVersion = BUILD_VERSION;
             }
             if ($buildVersion == '{BUILD_VERSION}') {
-                $buildVersion =  round(microtime(1));
+                $buildVersion = round(microtime(1));
             }
             $this->buildVersion = $buildVersion;
         }
@@ -240,7 +248,6 @@ class Application
      */
     protected function defaultConfigure()
     {
-
     }
 
     /**

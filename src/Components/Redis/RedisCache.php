@@ -1,20 +1,20 @@
 <?php
 
 
-namespace suffi\Simple\Ext\Redis;
+namespace suffi\Simple\Components\Redis;
 
-use suffi\Simple\Ext\Cache\Cache;
+use suffi\Simple\Components\Cache\Cache;
 use Psr\Cache\CacheItemInterface;
 
 /**
  * Class RedisCache
- * @package suffi\Simple\Ext\Redis
+ * @package suffi\Simple\Components\Redis
  *
  * Кэш в Redis
  *
  * <pre>
  *     'Cache' => [
- *          'class' => 'suffi\Simple\Ext\Redis\RedisCache'
+ *          'class' => 'suffi\Simple\Components\Redis\RedisCache'
  *      ],
  * </pre>
  */

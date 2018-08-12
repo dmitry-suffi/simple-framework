@@ -44,7 +44,7 @@ class Session
      * Старт сессии
      * @return bool
      */
-    public function start():bool
+    public function start(): bool
     {
         if ($this->started) {
             return true;
@@ -54,7 +54,13 @@ class Session
             throw new \RuntimeException('Failed to start the session: already started by PHP.');
         }
         if (ini_get('session.use_cookies') && headers_sent($file, $line)) {
-            throw new \RuntimeException(sprintf('Failed to start the session because headers have already been sent by "%s" at line %d.', $file, $line));
+            throw new \RuntimeException(
+                sprintf(
+                    'Failed to start the session because headers have already been sent by "%s" at line %d.',
+                    $file,
+                    $line
+                )
+            );
         }
         // ok to try and start the session
         if (!session_start()) {
@@ -69,7 +75,7 @@ class Session
      * Возвращает true, если сессия запущена
      * @return bool
      */
-    public function isStarted():bool
+    public function isStarted(): bool
     {
         return $this->started;
     }
@@ -78,7 +84,7 @@ class Session
      * Получение id сессии
      * @return string
      */
-    public function getId():string
+    public function getId(): string
     {
         return session_id();
     }
@@ -122,7 +128,7 @@ class Session
      * Регенерация идентификатор сеанса
      * @return bool
      */
-    public function migrate($destroy = false):bool
+    public function migrate($destroy = false): bool
     {
         // Cannot regenerate the session ID for non-active sessions.
         if (\PHP_SESSION_ACTIVE !== session_status()) {
@@ -153,7 +159,7 @@ class Session
      * @param string $name
      * @return bool
      */
-    public function has(string $name):bool
+    public function has(string $name): bool
     {
         return ArrayHelper::has($_SESSION, $name);
     }

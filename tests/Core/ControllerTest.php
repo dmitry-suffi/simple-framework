@@ -1,6 +1,6 @@
 <?php
 
-namespace suffi\Simple\Tests\core;
+namespace suffi\Simple\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
 use suffi\Simple\Core\Controller;
@@ -12,36 +12,41 @@ use suffi\Simple\Core\Exceptions\NotFoundException;
 class ControllerTest extends TestCase
 {
 
-
     /**
      * @return Controller
      */
     protected function getController()
     {
-        return new class extends Controller {
+        return new class extends Controller
+        {
 
             public $foo = '';
 
             public $defaultAction = 'bar';
 
-            public function beforeAction($actionName) {
+            public function beforeAction($actionName)
+            {
                 $this->foo .= 'before';
             }
 
-            public function afterAction($actionName) {
-                $this->foo .=  'after';
+            public function afterAction($actionName)
+            {
+                $this->foo .= 'after';
             }
 
-            public function actionTest() {
+            public function actionTest()
+            {
                 $this->foo .= 'test';
                 return 'test';
             }
 
-            public function actionBar() {
+            public function actionBar()
+            {
                 return 'bar';
             }
 
-            public function actionFooBar() {
+            public function actionFooBar()
+            {
                 return 'foo-bar';
             }
         };
@@ -63,7 +68,8 @@ class ControllerTest extends TestCase
     public function testActionNotExist()
     {
         $this->expectException(NotFoundException::class);
-        $c =  new class extends Controller {
+        $c = new class extends Controller
+        {
 
             public $defaultAction = 'bar';
         };
@@ -73,5 +79,4 @@ class ControllerTest extends TestCase
 
         $this->assertEquals($c->run('noexist'), 'bar');
     }
-
 }

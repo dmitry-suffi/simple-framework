@@ -1,10 +1,9 @@
 <?php
 
-namespace suffi\Simple\Tests\core;
+namespace suffi\Simple\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
 use suffi\di\NotFoundException;
-use suffi\Simple\Core\Exceptions\ConfigException;
 
 /**
  * Class ApplicationTest
@@ -80,5 +79,4 @@ class ApplicationTest extends TestCase
 
         $app->run();
     }
-
 }

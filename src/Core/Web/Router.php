@@ -24,18 +24,18 @@ use suffi\Simple\Core\Simple;
  */
 class Router extends \suffi\Simple\Core\Router
 {
-    const routeParams = 'route';
+    const ROUTE_PARAMS = 'route';
 
     /**
      * Получение названия модуля и контроллера
      * @return array
      */
-    public function route():array
+    public function route(): array
     {
         /** @var $request */
         $request = Simple::getRequest();
 
-        $route = $request->get(self::routeParams, $request->post(self::routeParams));
+        $route = $request->get(self::ROUTE_PARAMS, $request->post(self::ROUTE_PARAMS));
         if ($route && preg_match('/(.+?)\/(.+?)\/(.+?)/', $route)) {
             list($moduleName, $controllerName, $this->action) = explode('/', $route);
         } else {

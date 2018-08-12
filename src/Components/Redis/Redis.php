@@ -1,14 +1,14 @@
 <?php
 
-namespace suffi\Simple\Ext\Redis;
+namespace suffi\Simple\Components\Redis;
 
 /**
  * Class Redis
- * @package suffi\Simple\Ext\Redis
+ * @package suffi\Simple\Components\Redis
  *
  * <pre>
  *     'Redis' => [
- *          'class' => 'suffi\Simple\Ext\Redis\Redis',
+ *          'class' => 'suffi\Simple\Components\Redis\Redis',
  *          'init' => 'init',
  *          'properties' => [
  *              'host' => '',
@@ -52,7 +52,6 @@ class Redis extends \Redis
     public function getHost()
     {
         if (!$this->host) {
-
             if (ini_get('session.save_handler') == 'redis') {
                 $savePath = ini_get('session.save_path');
                 if (substr($savePath, 0, 5) === 'tcp:/') {
@@ -62,7 +61,6 @@ class Redis extends \Redis
                 } else {
                     $this->host = $savePath;
                 }
-
             }
         }
         return $this->host;
@@ -96,15 +94,12 @@ class Redis extends \Redis
                 if (!$select) {
                     throw new \RedisException('Нет соединения с бд Redis');
                 }
-
-            }
-            catch (\RedisException $e) {
+            } catch (\RedisException $e) {
                 $i++;
                 $error = true;
                 usleep(50);
             }
-        }
-        while($error && $i < 5);
+        } while ($error && $i < 5);
 
         $this->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
     }

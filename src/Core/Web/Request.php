@@ -17,5 +17,4 @@ class Request extends \suffi\Simple\Core\Request
         $this->queryParams = $_GET;
         $this->bodyParams = $_POST;
     }
-
 }

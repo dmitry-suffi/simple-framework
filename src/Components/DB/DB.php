@@ -1,13 +1,13 @@
 <?php
 
-namespace suffi\Simple\Ext\DB;
+namespace suffi\Simple\Components\DB;
 
 /**
  * Class DB
  *
  * Базовый класс для работы с бд
  *
- * @package suffi\Simple\Ext\DB
+ * @package suffi\Simple\Components\DB
  */
 abstract class DB
 {

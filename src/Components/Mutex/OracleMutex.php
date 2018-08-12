@@ -1,19 +1,19 @@
 <?php
 
-namespace suffi\Simple\Ext\Mutex;
+namespace suffi\Simple\Components\Mutex;
 
-use suffi\Simple\Ext\DB\DB;
+use suffi\Simple\Components\DB\DB;
 
 /**
  * Класс для механизма блокировок через Oracle
  * Требует грантов на DBMS_LOCK
  *
  * Class OracleMutex
- * @package suffi\Simple\Ext\Mutex
+ * @package suffi\Simple\Components\Mutex
  *
  * <pre>
  * 'Mutex' => [
- *     'class' => 'suffi\Simple\Ext\Mutex\OracleMutex',
+ *     'class' => 'suffi\Simple\Components\Mutex\OracleMutex',
  *     'init' => 'init',
  *     'setters' => [
  *         'db' => 'DB'

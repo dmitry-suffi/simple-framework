@@ -1,12 +1,12 @@
 <?php
 
-namespace suffi\Simple\Ext\DB;
+namespace suffi\Simple\Components\DB;
 
 use suffi\Simple\Core\Exceptions\ConfigException;
 
 /**
  * Class DB
- * @package suffi\Simple\Ext\DB
+ * @package suffi\Simple\Components\DB
  */
 class OracleDB extends DB
 {
@@ -151,7 +151,7 @@ class OracleDB extends DB
             }
         }
 
-        oci_bind_by_name($parse, $label, $var, (64*1024)-1);
+        oci_bind_by_name($parse, $label, $var, (64 * 1024) - 1);
         $execute = @oci_execute($parse, OCI_DEFAULT);
 
         if ($execute) {
@@ -197,7 +197,6 @@ class OracleDB extends DB
             }
             oci_free_statement($parse);
             return true;
-
         } else {
             oci_rollback($this->db_link);
             foreach ($clobs as $k => $val) {
@@ -208,5 +207,4 @@ class OracleDB extends DB
             return $tt['message'];
         }
     }
-
 }

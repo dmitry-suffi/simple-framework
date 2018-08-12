@@ -1,16 +1,16 @@
 <?php
 
-namespace suffi\Simple\Ext\Mutex;
+namespace suffi\Simple\Components\Mutex;
 
 /**
  * Класс для механизма блокировок через Redis
  *
  * Class RedisMutex
- * @package suffi\Simple\Ext\Mutex
+ * @package suffi\Simple\Components\Mutex
  *
  * <pre>
  * 'Mutex' => [
- *     'class' => 'suffi\Simple\Ext\Mutex\RedisMutex',
+ *     'class' => 'suffi\Simple\Components\Mutex\RedisMutex',
  *     'init' => 'init',
  *     'setters' => [
  *         'redis' => 'Redis'
@@ -43,7 +43,7 @@ class RedisMutex extends Mutex
      * Список значений параметров блокировки
      * @var array
      */
-    private $_lockValues = [];
+    private $lockValues = [];
 
     /**
      * Максимальное время ожидания разблокировки
@@ -94,7 +94,7 @@ class RedisMutex extends Mutex
         for ($i = 0; $i < $attempts; ++$i) {
             $success = $this->redis->set($key, $value, ['NX', (int)($this->expire * 1000) . 'PX']);
             if ($success) {
-                $this->_lockValues[$name] = $value;
+                $this->lockValues[$name] = $value;
                 return true;
             }
             usleep($this->spinLockWait);
@@ -115,14 +115,14 @@ else
 end
 LUA;
 
-        if (!isset($this->_lockValues[$name]) || !$this->redis->eval($releaseLuaScript, [
+        if (!isset($this->lockValues[$name]) || !$this->redis->eval($releaseLuaScript, [
                 $this->calculateKey($name),
-                $this->redis->_serialize($this->_lockValues[$name])
+                $this->redis->_serialize($this->lockValues[$name])
             ], 1)
         ) {
             return false;
         } else {
-            unset($this->_lockValues[$name]);
+            unset($this->lockValues[$name]);
             return true;
         }
     }
