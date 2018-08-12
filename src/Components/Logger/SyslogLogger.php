@@ -23,20 +23,9 @@ class SyslogLogger extends Logger
         openlog($this->ident, LOG_CONS | LOG_ODELAY | LOG_PID | LOG_PERROR, LOG_USER);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function debug($message, $fullMessage = '')
+    public function log($level, $message, array $context = array())
     {
-        syslog(LOG_DEBUG, $message . ' ' . $fullMessage);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function error($message, $fullMessage = '')
-    {
-        syslog(LOG_ERR, $message . ' ' . $fullMessage);
+        syslog($level, $message . ' ' . print_r($context, true));
     }
 
     /**
