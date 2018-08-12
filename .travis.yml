@@ -6,7 +6,7 @@ php:
   - '7.2'
 
 before_install:
-- echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.in
+- echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 install:
   - curl -s http://getcomposer.org/installer | php
